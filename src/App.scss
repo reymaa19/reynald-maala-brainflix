@@ -1,8 +1,30 @@
 @use './styles/partials/globals';
+@use './styles/partials/mixins' as *;
+@use './styles/partials/variables' as *;
 
-.test {
-  width: 50px;
-  &--testing{
-    color: red;
+.video {
+  @include flex-container;
+  background-color: $secondary-color-black;
+  margin: 0;
+  padding: 0;
+
+  @include tablet {
+    padding: 0 4.688vw;
+  }
+
+  @include desktop {
+    padding: 0;
+  }
+
+  &__player {
+    margin: 0;
+    aspect-ratio: 16/9;
+    height: 100%;
+    width: 100%;
+
+    @include desktop {
+      width: 52.875rem;
+      margin: 0 auto;
+    }
   }
 }

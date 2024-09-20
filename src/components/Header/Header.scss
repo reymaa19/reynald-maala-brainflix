@@ -12,7 +12,8 @@
 
   @include desktop {
     margin: 0 auto;
-    width: 80rem;
+    padding: $padding-sm 0;
+    width: 63.0625rem;
   }
 
   &__logo {
