@@ -1,0 +1,28 @@
+@use '../../styles/partials/_mixins.scss' as *;
+@use '../../styles/partials/variables' as *;
+
+.stat {
+  color: $primary-color-silver;
+  font-size: $mobile-fs-body;
+  line-height: $mobile-lh-body;
+  font-weight: $mobile-fw-body;
+
+  @include tablet {
+    font-size: $fs-body;
+    line-height: $lh-body;
+  }
+
+  &--views {
+    background-image: url('/src/assets/images/icons/views.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    padding-left: 2rem;
+  }
+
+  &--likes {
+    background-image: url('/src/assets/images/icons/likes.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    padding-left: 1.6rem;
+  }
+}

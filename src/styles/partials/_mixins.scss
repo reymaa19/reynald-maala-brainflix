@@ -27,3 +27,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+@mixin divider {
+  border-bottom: 1px solid $secondary-color-gray;
+}

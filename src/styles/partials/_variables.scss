@@ -18,7 +18,7 @@ $error-color: #D22D2D;
 // padding
 $padding-xs: 0.75rem;
 $padding-sm: 1rem;
-$padding-m: 1.5rem;
+$padding-md: 1.5rem;
 $padding-lg: 2.25rem;
 
 // font weight
@@ -31,7 +31,45 @@ $mobile-avatar-size: 2.25rem;
 $avatar-size: 3rem;
 
 // Type Kit
+$mobile-fs-page-header: 1.5rem;
+$mobile-lh-page-header: 2rem;
+$mobile-fw-page-header: $fw-demi;
+
+$mobile-fs-section-header: 0.8125rem;
+$mobile-lh-section-header: 1.25rem;
+$mobile-fw-section-header: $fw-demi;
+
+$mobile-fs-subheader: 0.75rem;
+$mobile-lh-subheader: 1.125rem;
+$mobile-fw-subheader: $fw-demi;
+
+$mobile-fs-body: 0.75rem;
+$mobile-lh-body: 1.125rem;
+$mobile-fw-body: $fw-regular;
+
 $mobile-fs-labels-btns: 0.625rem;
 $mobile-lh-labels-btns: 1.25rem;
 $mobile-fw-labels-btns: $fw-demi;
 $mobile-ls-labels-btns: 0.031rem;
+
+
+
+$fs-page-header: 2.0625rem;
+$lh-page-header: 2.75rem;
+$fw-page-header: $fw-demi;
+
+$fs-section-header: 0.75rem;
+$lh-section-header: 1.25rem;
+$fw-section-header: $fw-demi;
+
+$fs-subheader: 0.875rem;
+$lh-subheader: 1.375rem;
+$fw-subheader: $fw-demi;
+
+$fs-body: 0.875rem;
+$lh-body: 1.375rem;
+$fw-body: $fw-regular;
+
+$fs-labels-btns: 0.75rem;
+$lh-labels-btns: 1.25rem;
+$fw-labels-btns: $fw-demi;

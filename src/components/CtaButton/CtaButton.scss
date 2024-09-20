@@ -20,6 +20,9 @@
   @include tablet {
     padding: 0 2rem;
     width: 9.75rem;
+    font-size: $fs-labels-btns;
+    line-height: $lh-labels-btns;
+    letter-spacing: $mobile-ls-labels-btns;
   }
 
   &--UPLOAD {

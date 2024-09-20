@@ -45,6 +45,9 @@
     min-height: $padding-lg;
     min-width: 15rem;
     font-family: inherit;
+    font-size: $mobile-fs-labels-btns;
+    line-height: $mobile-lh-labels-btns;
+    font-weight: $fw-regular;
     background-image: url('/src/assets/images/icons/search.svg');
     background-position: $padding-xs 50%;
     background-repeat: no-repeat;
@@ -52,8 +55,10 @@
     border: 1px solid $secondary-color-gray;
 
     @include tablet {
-      margin-right: $padding-m;
+      margin-right: $padding-md;
       height: 2.5rem;
+      font-size: $fs-labels-btns;
+      line-height: $lh-labels-btns;
     }
 
     &--active {
