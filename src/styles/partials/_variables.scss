@@ -1,0 +1,37 @@
+// Breakpoints
+$breakpoint-large: 80rem;
+$breakpoint-medium: 48rem;
+
+// Colors
+$primary-color-black: #323232;
+$primary-color-blue: #0095FF;
+$primary-color-silver: #AFAFAF;
+$primary-color-white: #FFFFFF;
+
+$secondary-color-black: #000000;
+$secondary-color-blue: #0065AD;
+$secondary-color-gray: #E1E1E1;
+$secondary-color-white: #FAFAFA;
+
+$error-color: #D22D2D;
+
+// padding
+$padding-xs: 0.75rem;
+$padding-sm: 1rem;
+$padding-m: 1.5rem;
+$padding-lg: 2.25rem;
+
+// font weight
+$fw-regular: 400;
+$fw-demi: 600;
+$fw-bold: 700;
+
+// Avatar
+$mobile-avatar-size: 2.25rem;
+$avatar-size: 3rem;
+
+// Type Kit
+$mobile-fs-labels-btns: 0.625rem;
+$mobile-lh-labels-btns: 1.25rem;
+$mobile-fw-labels-btns: $fw-demi;
+$mobile-ls-labels-btns: 0.031rem;

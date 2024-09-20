@@ -1,0 +1,70 @@
+@use '/src/styles/partials/mixins' as *;
+@use '/src/styles/partials/variables' as *;
+
+.header {
+  @include flex-container(column, center, center);
+  padding: $padding-sm;
+
+  @include tablet {
+    flex-direction: row;
+    padding: $padding-sm $padding-lg;
+  }
+
+  @include desktop {
+    margin: 0 auto;
+    width: 80rem;
+  }
+
+  &__logo {
+    width: 7.5rem;
+    height: 1.563rem;
+    background-image: url('/src/assets/images/logo/BrainFlix-logo.svg');
+    background-repeat: no-repeat;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    @include flex-container(row, center, center);
+    margin: $padding-sm 0;
+    width: 100%;
+
+    @include tablet {
+      display: block;
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  &__search {
+    margin-right: $padding-sm;
+    padding-left: $padding-lg;
+    min-height: $padding-lg;
+    min-width: 15rem;
+    font-family: inherit;
+    background-image: url('/src/assets/images/icons/search.svg');
+    background-position: $padding-xs 50%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 1px solid $secondary-color-gray;
+
+    @include tablet {
+      margin-right: $padding-m;
+      height: 2.5rem;
+    }
+
+    &--active {
+      border: 2px solid $primary-color-blue;
+    }
+
+    &--error {
+      border: 1px solid $error-color;
+    }
+
+    &::placeholder {
+      color: $primary-color-black;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use '/src/styles/partials/variables' as *;
+@use '/src/styles/partials/mixins' as *;
+
+.avatar {
+  min-width: $mobile-avatar-size;
+  min-height: $mobile-avatar-size;
+  background-size: cover;
+  background-color: $secondary-color-gray;
+  border-radius: 50%;
+
+  &--with-image {
+    background-image: url("/src/assets/images/Mohan-muruge.jpg");
+  }
+
+  @include tablet {
+    display: none;
+    min-width: $avatar-size;
+    min-height: $avatar-size;
+  }
+
+  &--header-right {
+    display: none;
+    margin-left: $padding-sm;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      margin-left: $padding-lg;
+    }
+  }
+}

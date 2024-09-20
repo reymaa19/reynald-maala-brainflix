@@ -1,0 +1,8 @@
+@use './styles/partials/globals';
+
+.test {
+  width: 50px;
+  &--testing{
+    color: red;
+  }
+}
