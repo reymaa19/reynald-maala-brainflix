@@ -1,29 +1,27 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.comments {
-    padding: 0 $padding-sm;
-    font-size: $mobile-fs-body;
-    font-weight: $fw-regular;
-    line-height: $mobile-lh-body;
-    color: $primary-color-black;
-    list-style-type: none;
+.next-videos {
+    padding: $padding-sm;
 
     @include tablet {
-        font-size: $fs-body;
-        line-height: $lh-body;
-        padding: 0 $padding-lg;
+        flex-direction: row;
+        padding: $padding-sm $padding-lg;
     }
 
     @include desktop {
-        // margin: $padding-xl $padding-desktop;
+        margin: 0 auto;
+        padding: $padding-sm 0;
+        width: 63.0625rem;
     }
 
     &__header {
         margin-bottom: $padding-sm;
         font-size: $mobile-fs-section-header;
-        font-weight: $fw-demi;
         line-height: $mobile-lh-section-header;
+        font-weight: $fw-demi;
+        letter-spacing: $mobile-ls-section-header;
+        color: $primary-color-gray;
 
         @include tablet {
             font-size: $fs-section-header;
@@ -31,7 +29,7 @@
         }
     }
 
-    &__feed {
+    &__list {
         padding: 0;
         list-style-type: none;
     }

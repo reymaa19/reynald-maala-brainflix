@@ -20,8 +20,6 @@ $padding-xs: 0.75rem;
 $padding-sm: 1rem;
 $padding-md: 1.5rem;
 $padding-lg: 2.25rem;
-$padding-xl: 2.7rem;
-$padding-desktop: 10.2vw;
 
 // font weight
 $fw-regular: 400;
@@ -33,22 +31,25 @@ $mobile-avatar-size: 2.25rem;
 $avatar-size: 2.5rem;
 
 // Type Kit
+// mobile
 $mobile-fs-page-header: 1.5rem;
 $mobile-lh-page-header: 2rem;
 
 $mobile-fs-section-header: 0.75rem;
 $mobile-lh-section-header: 1.25rem;
+$mobile-ls-section-header: 0.0125rem;
 
 $mobile-fs-subheader: 0.8125rem;
 $mobile-lh-subheader: 1.125rem;
 
-$mobile-fs-body: 0.75rem;
+$mobile-fs-body: 0.8125rem;
 $mobile-lh-body: 1.125rem;
 
 $mobile-fs-labels-btns: 0.625rem;
 $mobile-lh-labels-btns: 1.25rem;
 $mobile-ls-labels-btns: 0.031rem;
 
+// regular
 $fs-page-header: 2.0625rem;
 $lh-page-header: 2.75rem;
 
@@ -67,7 +68,10 @@ $lh-labels-btns: 1.25rem;
 // Form
 $mobile-form-height: 2.25rem;
 $form-height: 3rem;
-$form-radius: 4px;
+$form-radius: 0.25rem;
 $form-field-spacing: 0.25rem;
-$form-field-border: 1px solid $secondary-color-gray;
+$form-field-border: 0.0625rem solid $secondary-color-gray;
 $form-color-error: #d22d2d;
+
+// images:
+$image-border-radius: 0.25rem;

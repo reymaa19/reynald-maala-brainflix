@@ -1,0 +1,50 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.next-video {
+    @include flex-container;
+    gap: $padding-sm;
+    margin-bottom: $padding-xs;
+    width: 18.75rem;
+    height: 4.375rem;
+    color: $primary-color-black;
+
+    &__thumbnail {
+        width: 6.375rem;
+        height: 3.75rem;
+        background-color: $secondary-color-gray;
+        border-radius: $image-border-radius;
+
+        @include tablet {
+            width: 6.875rem;
+            height: 4.0625rem;
+        }
+    }
+
+    &__wrapper {
+        @include flex-container(column, space-between);
+        width: 62%;
+    }
+
+    &__title {
+        font-size: $mobile-fs-subheader;
+        line-height: $mobile-lh-subheader;
+        font-weight: $fw-demi;
+
+        @include tablet {
+            font-size: $fs-subheader;
+            line-height: $lh-subheader;
+        }
+    }
+
+    &__channel {
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
+
+        @include tablet {
+            font-size: $fs-body;
+            line-height: $lh-body;
+        }
+    }
+}

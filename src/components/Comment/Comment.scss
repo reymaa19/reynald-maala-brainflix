@@ -4,8 +4,12 @@
 .comment {
     @include flex-container;
     gap: $padding-sm;
-    padding: $padding-sm 0;
+    padding: $padding-xs 0;
     @include divider;
+
+    @include tablet {
+        padding: $padding-md;
+    }
 
     &__details {
         width: 100%;
@@ -17,7 +21,7 @@
     }
 
     &__name {
-        font-weight: $font-weight-demi;
+        font-weight: $fw-demi;
     }
 
     &__date {

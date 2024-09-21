@@ -15,11 +15,16 @@
     }
 
     @include tablet {
-        display: none;
         min-width: $avatar-size;
         min-height: $avatar-size;
         max-width: $avatar-size;
         max-height: $avatar-size;
+    }
+
+    &--hide {
+        @include tablet {
+            display: none;
+        }
     }
 
     &--header-right {
@@ -36,7 +41,6 @@
     }
 
     &--comment {
-        display: block;
         margin-top: $padding-md;
     }
 }

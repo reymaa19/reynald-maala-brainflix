@@ -21,7 +21,7 @@ const Header = () => {
                     value={search}
                     onChange={changeHandler}
                 />
-                <Avatar withImage={true} />
+                <Avatar withImage={true} variant="hide" />
             </div>
             <CtaButton content="UPLOAD" />
             <Avatar withImage={true} variant={"header-right"} />
