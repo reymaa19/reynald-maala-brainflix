@@ -1,33 +1,42 @@
-@use '/src/styles/partials/variables' as *;
-@use '/src/styles/partials/mixins' as *;
+@use "/src/styles/partials/variables" as *;
+@use "/src/styles/partials/mixins" as *;
 
 .avatar {
-  min-width: $mobile-avatar-size;
-  min-height: $mobile-avatar-size;
-  background-size: cover;
-  background-color: $secondary-color-gray;
-  border-radius: 50%;
+    min-width: $mobile-avatar-size;
+    min-height: $mobile-avatar-size;
+    max-width: $mobile-avatar-size;
+    max-height: $mobile-avatar-size;
+    background-size: cover;
+    background-color: $secondary-color-gray;
+    border-radius: 50%;
 
-  &--with-image {
-    background-image: url("/src/assets/images/Mohan-muruge.jpg");
-  }
-
-  @include tablet {
-    display: none;
-    min-width: $avatar-size;
-    min-height: $avatar-size;
-  }
-
-  &--header-right {
-    display: none;
-    margin-left: $padding-sm;
+    &--with-image {
+        background-image: url("/src/assets/images/Mohan-muruge.jpg");
+    }
 
     @include tablet {
-      display: block;
+        display: none;
+        min-width: $avatar-size;
+        min-height: $avatar-size;
+        max-width: $avatar-size;
+        max-height: $avatar-size;
     }
 
-    @include desktop {
-      margin-left: $padding-lg;
+    &--header-right {
+        display: none;
+        margin-left: $padding-sm;
+
+        @include tablet {
+            display: block;
+        }
+
+        @include desktop {
+            margin-left: $padding-lg;
+        }
     }
-  }
+
+    &--comment {
+        display: block;
+        margin-top: $padding-md;
+    }
 }

@@ -1,13 +1,9 @@
-import './Avatar.scss'
+import "./Avatar.scss";
 
 const Avatar = ({ withImage, variant }) => {
-  const avatarClassName = `avatar${withImage ? ' avatar--with-image' : ''}${variant ? ` avatar--${variant}` : ''}`
+    const avatarClassName = `avatar${withImage ? " avatar--with-image" : ""}${variant ? ` avatar--${variant}` : ""}`;
 
-  return (
-    <div
-      className={avatarClassName}
-    />
-  )
-}
+    return <div className={avatarClassName} />;
+};
 
-export default Avatar
+export default Avatar;

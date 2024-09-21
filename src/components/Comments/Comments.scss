@@ -1,0 +1,98 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.comments {
+    padding: 0 $padding-sm;
+    font-size: $mobile-fs-body;
+    font-weight: $fw-regular;
+    line-height: $mobile-lh-body;
+    color: $primary-color-black;
+    list-style-type: none;
+
+    @include tablet {
+        font-size: $fs-body;
+        line-height: $lh-body;
+        padding: 0 $padding-lg;
+    }
+
+    @include desktop {
+        margin: $padding-xl $padding-desktop;
+    }
+
+    &__title {
+        margin-bottom: $padding-sm;
+        font-size: $mobile-fs-subheader;
+        font-weight: $fw-demi;
+        line-height: $mobile-lh-subheader;
+
+        @include tablet {
+            font-size: $fs-subheader;
+            line-height: $lh-subheader;
+        }
+    }
+
+    &__form {
+        @include flex-container;
+        gap: $padding-sm;
+        padding-bottom: $padding-sm;
+        font-size: $mobile-fs-labels-btns;
+        font-weight: $fw-demi;
+        letter-spacing: $mobile-ls-labels-btns;
+        color: $primary-color-gray;
+        @include divider;
+
+        @include tablet {
+            align-items: flex-end;
+            padding-bottom: $padding-md;
+            font-size: $fs-labels-btns;
+        }
+    }
+
+    &__inputs {
+        @include flex-container(column);
+        width: 100%;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+
+    &__inputs-container {
+        @include flex-container(column);
+        width: 100%;
+        margin-right: $padding-md;
+    }
+
+    &__input {
+        height: 5.875rem;
+        margin: 0.25rem 0 $padding-sm 0;
+        padding: $padding-xs;
+        resize: none;
+        font-family: inherit;
+        color: $primary-color-black;
+        background-color: $secondary-color-white;
+        border: $form-field-border;
+        border-radius: $form-radius;
+
+        @include tablet {
+            @include flex-container($align: baseline);
+            height: 2.5rem;
+            padding: auto $padding-xs;
+            margin: 0;
+            width: 100%;
+        }
+
+        &::placeholder {
+            color: $primary-color-black;
+        }
+
+        &--error {
+            border-color: $form-color-error;
+        }
+    }
+
+    &__feed {
+        list-style-type: none;
+    }
+}

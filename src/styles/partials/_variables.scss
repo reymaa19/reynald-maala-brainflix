@@ -4,22 +4,24 @@ $breakpoint-medium: 48rem;
 
 // Colors
 $primary-color-black: #323232;
-$primary-color-blue: #0095FF;
-$primary-color-silver: #AFAFAF;
-$primary-color-white: #FFFFFF;
+$primary-color-blue: #0095ff;
+$primary-color-gray: #afafaf;
+$primary-color-white: #ffffff;
 
 $secondary-color-black: #000000;
-$secondary-color-blue: #0065AD;
-$secondary-color-gray: #E1E1E1;
-$secondary-color-white: #FAFAFA;
+$secondary-color-blue: #0065ad;
+$secondary-color-gray: #e1e1e1;
+$secondary-color-white: #fafafa;
 
-$error-color: #D22D2D;
+$error-color: #d22d2d;
 
 // padding
 $padding-xs: 0.75rem;
 $padding-sm: 1rem;
 $padding-md: 1.5rem;
 $padding-lg: 2.25rem;
+$padding-xl: 2.7rem;
+$padding-desktop: 10.2vw;
 
 // font weight
 $fw-regular: 400;
@@ -28,48 +30,44 @@ $fw-bold: 700;
 
 // Avatar
 $mobile-avatar-size: 2.25rem;
-$avatar-size: 3rem;
+$avatar-size: 2.5rem;
 
 // Type Kit
 $mobile-fs-page-header: 1.5rem;
 $mobile-lh-page-header: 2rem;
-$mobile-fw-page-header: $fw-demi;
 
-$mobile-fs-section-header: 0.8125rem;
+$mobile-fs-section-header: 0.75rem;
 $mobile-lh-section-header: 1.25rem;
-$mobile-fw-section-header: $fw-demi;
 
-$mobile-fs-subheader: 0.75rem;
+$mobile-fs-subheader: 0.8125rem;
 $mobile-lh-subheader: 1.125rem;
-$mobile-fw-subheader: $fw-demi;
 
 $mobile-fs-body: 0.75rem;
 $mobile-lh-body: 1.125rem;
-$mobile-fw-body: $fw-regular;
 
 $mobile-fs-labels-btns: 0.625rem;
 $mobile-lh-labels-btns: 1.25rem;
-$mobile-fw-labels-btns: $fw-demi;
 $mobile-ls-labels-btns: 0.031rem;
-
-
 
 $fs-page-header: 2.0625rem;
 $lh-page-header: 2.75rem;
-$fw-page-header: $fw-demi;
 
 $fs-section-header: 0.75rem;
 $lh-section-header: 1.25rem;
-$fw-section-header: $fw-demi;
 
 $fs-subheader: 0.875rem;
 $lh-subheader: 1.375rem;
-$fw-subheader: $fw-demi;
 
 $fs-body: 0.875rem;
 $lh-body: 1.375rem;
-$fw-body: $fw-regular;
 
 $fs-labels-btns: 0.75rem;
 $lh-labels-btns: 1.25rem;
-$fw-labels-btns: $fw-demi;
+
+// Form
+$mobile-form-height: 2.25rem;
+$form-height: 3rem;
+$form-radius: 4px;
+$form-field-spacing: 0.25rem;
+$form-field-border: 1px solid $secondary-color-gray;
+$form-color-error: #d22d2d;

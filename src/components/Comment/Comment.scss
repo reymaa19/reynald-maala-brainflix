@@ -1,0 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.comment {
+    @include flex-container;
+    gap: $padding-sm;
+    padding: $padding-sm 0;
+    @include divider;
+
+    &__details {
+        width: 100%;
+    }
+
+    &__head {
+        @include flex-container($justify: space-between);
+        margin-bottom: $padding-xs;
+    }
+
+    &__name {
+        font-weight: $font-weight-demi;
+    }
+
+    &__date {
+        color: $primary-color-gray;
+    }
+
+    &__buttons {
+        @include flex-container($justify: flex-start);
+        gap: $padding-lg;
+        margin-top: $padding-xs;
+        width: 100%;
+    }
+}

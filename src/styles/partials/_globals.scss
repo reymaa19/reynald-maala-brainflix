@@ -1,15 +1,15 @@
-@use './variables' as *;
-@use './mixins' as *;
-@use './typography';
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography";
 
 html {
-  font-size: 100%;
-  font-family: 'Avenir Next LT Pro', Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    font-family: "Avenir Next LT Pro", Arial, Helvetica, sans-serif;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
