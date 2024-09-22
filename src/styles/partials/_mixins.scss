@@ -28,6 +28,15 @@
     cursor: pointer;
 }
 
-@mixin divider {
+@mixin divider-top {
+    border-top: 1px solid $secondary-color-gray;
+}
+@mixin divider-right {
+    border-right: 1px solid $secondary-color-gray;
+}
+@mixin divider-bottom {
     border-bottom: 1px solid $secondary-color-gray;
+}
+@mixin divider-left {
+    border-left: 1px solid $secondary-color-gray;
 }

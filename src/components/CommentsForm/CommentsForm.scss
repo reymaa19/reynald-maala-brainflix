@@ -9,12 +9,15 @@
     font-weight: $fw-demi;
     letter-spacing: $mobile-ls-labels-btns;
     color: $primary-color-gray;
-    @include divider;
 
     @include tablet {
         align-items: flex-end;
         padding-bottom: $padding-md;
         font-size: $fs-labels-btns;
+    }
+
+    @include desktop {
+        margin-right: $padding-md;
     }
 
     &__inputs {
@@ -30,7 +33,14 @@
     &__inputs-container {
         @include flex-container(column);
         width: 100%;
-        margin-right: $padding-md;
+
+        @include desktop {
+            padding-right: $padding-md;
+        }
+    }
+
+    &__label {
+        padding-bottom: 0.25rem;
     }
 
     &__input {
@@ -43,6 +53,7 @@
         background-color: $secondary-color-white;
         border: $form-field-border;
         border-radius: $form-radius;
+        overflow: hidden;
 
         @include tablet {
             @include flex-container($align: baseline);

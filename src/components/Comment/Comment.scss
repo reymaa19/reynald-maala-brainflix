@@ -5,10 +5,14 @@
     @include flex-container;
     gap: $padding-sm;
     padding: $padding-xs 0;
-    @include divider;
+    @include divider-top;
 
     @include tablet {
-        padding: $padding-md;
+        padding: $padding-md 0;
+    }
+
+    @include desktop {
+        padding-right: $padding-md;
     }
 
     &__details {
@@ -17,21 +21,21 @@
 
     &__head {
         @include flex-container($justify: space-between);
-        margin-bottom: $padding-xs;
+        padding-bottom: $padding-xs;
     }
 
     &__name {
         font-weight: $fw-demi;
     }
 
-    &__date {
-        color: $primary-color-gray;
-    }
+    &__text {
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
 
-    &__buttons {
-        @include flex-container($justify: flex-start);
-        gap: $padding-lg;
-        margin-top: $padding-xs;
-        width: 100%;
+        @include tablet {
+            font-size: $fs-body;
+            line-height: $lh-body;
+        }
     }
 }

@@ -2,17 +2,17 @@
 @use "../../styles/partials/variables" as *;
 
 .next-videos {
-    padding: $padding-sm;
+    margin: $padding-sm;
+    width: 18rem;
 
     @include tablet {
         flex-direction: row;
-        padding: $padding-sm $padding-lg;
+        margin: $padding-sm $padding-lg;
     }
 
     @include desktop {
-        margin: 0 auto;
-        padding: $padding-sm 0;
-        width: 63.0625rem;
+        margin: 0 0 0 $padding-md;
+        padding: 2rem 0 0 0;
     }
 
     &__header {

@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-player {
+    margin: 0;
+    padding: 0;
+    background-color: $secondary-color-black;
+
+    @include tablet {
+        padding: 0 4.688vw;
+    }
+
+    @include desktop {
+        padding: 0;
+    }
+
+    &__video {
+        margin: 0;
+        aspect-ratio: 16/9;
+        height: 100%;
+        width: 100%;
+
+        @include desktop {
+            display: block;
+            margin: 0 auto;
+            width: 52.875rem;
+        }
+    }
+}

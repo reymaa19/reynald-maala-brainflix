@@ -1,112 +1,24 @@
-@use "./styles/partials/globals";
+@use "./styles/partials/typography";
 @use "./styles/partials/mixins" as *;
-@use "./styles/partials/variables" as *;
 
-.video {
-    color: $primary-color-black;
+html {
+    font-size: 100%;
+    font-family: "Avenir Next LT Pro", Arial, Helvetica, sans-serif;
+}
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.main {
     &__wrapper {
-        margin: 0;
-        padding: 0;
-        background-color: $secondary-color-black;
-
-        @include tablet {
-            padding: 0 4.688vw;
-        }
-
         @include desktop {
-            padding: 0;
-        }
-    }
-
-    &__player {
-        margin: 0;
-        aspect-ratio: 16/9;
-        height: 100%;
-        width: 100%;
-
-        @include desktop {
-            display: block;
-            margin: 0 auto;
-            width: 52.875rem;
-        }
-    }
-
-    &__content {
-        padding: 0 $padding-sm;
-
-        @include tablet {
-            padding: 0 $padding-lg;
-        }
-
-        @include desktop {
+            @include flex-container;
             margin: 0 auto;
             width: 63.0625rem;
-        }
-    }
-
-    &__title {
-        padding: $padding-sm 0;
-        margin-bottom: $padding-sm;
-        font-size: $mobile-fs-page-header;
-        line-height: $mobile-lh-page-header;
-        font-weight: $fw-demi;
-        @include divider;
-
-        @include tablet {
-            margin: 0;
-            font-size: $fs-page-header;
-            line-height: $lh-page-header;
-            border-bottom: none;
-        }
-
-        @include desktop {
-            padding-top: 2rem;
-        }
-    }
-
-    &__stats {
-        @include flex-container;
-        flex-wrap: wrap;
-        gap: $padding-lg;
-        padding-bottom: $padding-xs;
-        @include divider;
-
-        @include tablet {
-            justify-content: space-between;
-        }
-    }
-
-    &__container {
-        @include flex-container(column);
-        gap: $padding-sm;
-
-        @include tablet {
-            flex-direction: row;
-            gap: 2rem;
-        }
-    }
-
-    &__channel {
-        font-size: $mobile-fs-subheader;
-        line-height: $mobile-lh-subheader;
-        font-weight: $fw-demi;
-
-        @include tablet {
-            font-size: $fs-subheader;
-            line-height: $lh-subheader;
-        }
-    }
-
-    &__description {
-        font-size: $mobile-fs-body;
-        line-height: $mobile-lh-body;
-        font-weight: $fw-regular;
-        padding: $padding-sm 0;
-
-        @include tablet {
-            font-size: $fs-body;
-            line-height: $lh-body;
         }
     }
 }

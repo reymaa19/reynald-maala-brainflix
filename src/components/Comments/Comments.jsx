@@ -8,9 +8,9 @@ const Comments = ({ comments }) => {
             <h3 className="comments__header">{comments.length} Comments</h3>
             <CommentsForm />
             <ul className="comments__feed">
-                {comments.map((comment) => {
-                    return <Comment key={comment.id} comment={comment} />;
-                })}
+                {comments.map((comment) => (
+                    <Comment key={comment.id} comment={comment} />
+                ))}
             </ul>
         </section>
     );

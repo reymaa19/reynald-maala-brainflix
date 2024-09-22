@@ -1,0 +1,86 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-content {
+    color: $primary-color-black;
+    margin: $padding-sm;
+
+    @include tablet {
+        margin: $padding-md $padding-lg;
+        padding: 0;
+        width: 43.5rem;
+    }
+
+    @include desktop {
+        margin: 0;
+        padding: 2rem 0 0 0;
+        @include divider-right;
+    }
+
+    &__title {
+        font-size: $mobile-fs-page-header;
+        line-height: $mobile-lh-page-header;
+        font-weight: $fw-demi;
+        @include divider-bottom;
+
+        @include tablet {
+            margin: 0;
+            font-size: $fs-page-header;
+            line-height: $lh-page-header;
+            border-bottom: none;
+        }
+    }
+
+    &__stats {
+        @include flex-container;
+        flex-wrap: wrap;
+        gap: $padding-lg;
+        padding: $padding-xs 0;
+        @include divider-bottom;
+
+        @include tablet {
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            padding-right: $padding-md;
+        }
+    }
+
+    &__container {
+        @include flex-container(column);
+        gap: $padding-sm;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }
+
+    &__channel {
+        font-size: $mobile-fs-subheader;
+        line-height: $mobile-lh-subheader;
+        font-weight: $fw-demi;
+
+        @include tablet {
+            font-size: $fs-subheader;
+            line-height: $lh-subheader;
+        }
+    }
+
+    &__description {
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
+        padding: $padding-sm 0;
+
+        @include tablet {
+            font-size: $fs-body;
+            line-height: $lh-body;
+        }
+
+        @include desktop {
+            padding-right: $padding-md;
+        }
+    }
+}

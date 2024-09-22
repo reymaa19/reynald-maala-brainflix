@@ -1,23 +1,31 @@
+import { useState } from "react";
 import Header from "./components/Header/Header.jsx";
-import Video from "./components/Video/Video.jsx";
-import Comments from "./components/Comments/Comments.jsx";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer.jsx";
+import VideoContent from "./components/VideoContent/VideoContent.jsx";
 import NextVideos from "./components/NextVideos/NextVideos.jsx";
 import videoDetails from "./data/video-details.json";
 import "./App.scss";
 
 const App = () => {
-    const currentVideo = videoDetails[0];
-    const nextVideos = videoDetails.slice(1, videoDetails.length);
+    const [currentVideoId, setCurrentVideoId] = useState(videoDetails[0].id);
+
+    const handleVideoChange = (id) => setCurrentVideoId(id);
+
+    const currentVideo = videoDetails.find(({ id }) => id === currentVideoId);
+    const nextVideos = videoDetails.filter(({ id }) => id !== currentVideoId);
 
     return (
         <>
             <Header />
-            <main>
-                <div className="video-container">
-                    <Video video={currentVideo} />
-                    <Comments comments={currentVideo.comments} />
+            <main className="main__container">
+                <VideoPlayer currentVideo={currentVideo} />
+                <div className="main__wrapper">
+                    <VideoContent currentVideo={currentVideo} />
+                    <NextVideos
+                        nextVideos={nextVideos}
+                        onVideoChange={handleVideoChange}
+                    />
                 </div>
-                <NextVideos nextVideos={nextVideos} />
             </main>
         </>
     );

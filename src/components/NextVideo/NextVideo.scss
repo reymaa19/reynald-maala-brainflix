@@ -5,7 +5,6 @@
     @include flex-container;
     gap: $padding-sm;
     margin-bottom: $padding-xs;
-    width: 18.75rem;
     height: 4.375rem;
     color: $primary-color-black;
 
@@ -23,7 +22,6 @@
 
     &__wrapper {
         @include flex-container(column, space-between);
-        width: 62%;
     }
 
     &__title {

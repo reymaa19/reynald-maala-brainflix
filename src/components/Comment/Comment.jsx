@@ -1,4 +1,5 @@
 import Avatar from "../Avatar/Avatar.jsx";
+import Stat from "../Stat/Stat.jsx";
 import "./Comment.scss";
 
 const Comment = ({ comment: commentObj }) => {
@@ -33,7 +34,7 @@ const Comment = ({ comment: commentObj }) => {
             <div className="comment__details">
                 <div className="comment__head">
                     <h4 className="comment__name">{name}</h4>
-                    <p className="comment__date">{formatTimestamp()}</p>
+                    <Stat stat={formatTimestamp()} variant="timestamp" />
                 </div>
                 <p className="comment__text">{comment}</p>
             </div>

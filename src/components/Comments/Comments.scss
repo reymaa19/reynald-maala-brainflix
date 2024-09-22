@@ -2,28 +2,18 @@
 @use "../../styles/partials/variables" as *;
 
 .comments {
-    padding: 0 $padding-sm;
-    font-size: $mobile-fs-body;
-    font-weight: $fw-regular;
-    line-height: $mobile-lh-body;
-    color: $primary-color-black;
     list-style-type: none;
-
-    @include tablet {
-        font-size: $fs-body;
-        line-height: $lh-body;
-        padding: 0 $padding-lg;
-    }
+    @include divider-bottom;
 
     @include desktop {
-        // margin: $padding-xl $padding-desktop;
+        border: none;
     }
 
     &__header {
-        margin-bottom: $padding-sm;
+        padding-bottom: $padding-sm;
         font-size: $mobile-fs-section-header;
-        font-weight: $fw-demi;
         line-height: $mobile-lh-section-header;
+        font-weight: $fw-demi;
 
         @include tablet {
             font-size: $fs-section-header;

@@ -3,16 +3,15 @@
 
 .header {
     @include flex-container(column, center, center);
-    padding: $padding-sm;
+    margin: $padding-sm;
 
     @include tablet {
         flex-direction: row;
-        padding: $padding-sm $padding-lg;
+        margin: $padding-sm $padding-lg;
     }
 
     @include desktop {
-        margin: 0 auto;
-        padding: $padding-sm 0;
+        margin: $padding-sm auto;
         width: 63.0625rem;
     }
 
