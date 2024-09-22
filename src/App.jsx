@@ -17,7 +17,7 @@ const App = () => {
     return (
         <>
             <Header />
-            <main className="main__container">
+            <main className="main">
                 <VideoPlayer currentVideo={currentVideo} />
                 <div className="main__wrapper">
                     <VideoContent currentVideo={currentVideo} />
