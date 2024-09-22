@@ -34,7 +34,7 @@
         @include flex-container(column);
         width: 100%;
 
-        @include desktop {
+        @include tablet {
             padding-right: $padding-md;
         }
     }

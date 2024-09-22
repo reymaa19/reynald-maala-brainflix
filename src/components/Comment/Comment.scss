@@ -28,6 +28,18 @@
         font-weight: $fw-demi;
     }
 
+    &__timestamp {
+        color: $primary-color-gray;
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
+
+        @include tablet {
+            font-size: $fs-body;
+            line-height: $lh-body;
+        }
+    }
+
     &__text {
         font-size: $mobile-fs-body;
         line-height: $mobile-lh-body;

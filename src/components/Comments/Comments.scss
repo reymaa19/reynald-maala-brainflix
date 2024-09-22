@@ -11,13 +11,13 @@
 
     &__header {
         padding-bottom: $padding-sm;
-        font-size: $mobile-fs-section-header;
-        line-height: $mobile-lh-section-header;
+        font-size: $mobile-fs-subheader;
+        line-height: $mobile-lh-subheader;
         font-weight: $fw-demi;
 
         @include tablet {
-            font-size: $fs-section-header;
-            line-height: $lh-section-header;
+            font-size: $fs-subheader;
+            line-height: $lh-subheader;
         }
     }
 

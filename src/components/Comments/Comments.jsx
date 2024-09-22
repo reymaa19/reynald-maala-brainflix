@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import "./Comments.scss";

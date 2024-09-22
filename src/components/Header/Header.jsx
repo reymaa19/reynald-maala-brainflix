@@ -5,6 +5,7 @@ import "./Header.scss";
 
 const Header = () => {
     const [search, setSearch] = useState("");
+
     const changeHandler = (e) => {
         const value = e.target.value;
         setSearch(value);
