@@ -7,29 +7,21 @@ const Comment = ({ comment: commentObj }) => {
     // Formats the timestamp to a more human-readable format.
     const formatTimestamp = () => {
         const difference = Math.floor(new Date() - new Date(timestamp)) / 1000;
-        const minute = 60;
-        const hour = 60 * minute;
-        const day = 24 * hour;
-        const month = 30.437 * day;
-        const year = 12 * month;
+        const timeUnits = [
+            { name: "year", seconds: 12 * 30.437 * 24 * 60 * 60 },
+            { name: "month", seconds: 30.437 * 24 * 60 * 60 },
+            { name: "day", seconds: 24 * 60 * 60 },
+            { name: "hour", seconds: 60 * 60 },
+            { name: "minute", seconds: 60 },
+        ];
 
-        if (difference < minute) {
-            return "Just now";
-        } else if (difference < hour) {
-            const minutes = Math.floor(difference / minute);
-            return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
-        } else if (difference < day) {
-            const hours = Math.floor(difference / hour);
-            return `${hours} hour${hours > 1 ? "s" : ""} ago`;
-        } else if (difference < month) {
-            const days = Math.floor(difference / day);
-            return `${days} day${days > 1 ? "s" : ""} ago`;
-        } else if (difference < year) {
-            const months = Math.floor(difference / month);
-            return `${months} month${months > 1 ? "s" : ""} ago`;
-        } else {
-            const years = Math.floor(difference / year);
-            return `${years} year${years > 1 ? "s" : ""} ago`;
+        if (difference < 60) { return "Just now"; }
+
+        for (const unit of timeUnits) {
+            if (difference >= unit.seconds) {
+                const value = Math.floor(difference / unit.seconds);
+                return `${value} ${unit.name}${value > 1 ? "s" : ""} ago`;
+            }
         }
     };
 
