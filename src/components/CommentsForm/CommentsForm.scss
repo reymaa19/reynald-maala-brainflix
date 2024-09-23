@@ -58,7 +58,7 @@
         @include tablet {
             @include flex-container($align: baseline);
             height: 2.5rem;
-            padding: auto $padding-xs;
+            padding: $padding-xs;
             margin: 0;
             width: 100%;
         }
