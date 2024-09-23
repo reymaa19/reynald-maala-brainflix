@@ -4,14 +4,14 @@ const Video = ({ currentVideo }) => {
     const { image } = currentVideo;
 
     return (
-        <section className="video-player">
+        <div className="video-player">
             <video
                 className="video-player__video"
                 controls
                 poster={image}
-                src=""
+                src="#"
             ></video>
-        </section>
+        </div>
     );
 };
 
