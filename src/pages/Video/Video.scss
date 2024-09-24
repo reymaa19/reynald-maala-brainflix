@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+
+.main {
+    &__wrapper {
+        @include desktop {
+            @include flex-container;
+            margin: 0 auto;
+            width: 63.0625rem;
+        }
+    }
+}

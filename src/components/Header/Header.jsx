@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar.jsx";
 import CtaButton from "../CtaButton/CtaButton.jsx";
 import "./Header.scss";
@@ -13,7 +14,9 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="header__logo" />
+            <Link className="header__link" to="/">
+                <div className="header__logo" />
+            </Link>
             <div className="header__wrapper">
                 <input
                     className="header__search"

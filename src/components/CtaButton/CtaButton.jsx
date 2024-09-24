@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import "./CtaButton.scss";
 
 const CtaButton = ({ content }) => {
     return (
-        <button className={`cta-button cta-button--${content}`}>
+        <Link
+            className={`cta-button cta-button--${content}`}
+            to={`${content === "UPLOAD" ? "/upload" : ""} `}
+        >
             {content}
-        </button>
+        </Link>
     );
 };
 

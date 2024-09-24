@@ -1,5 +1,4 @@
 @use "./styles/partials/typography";
-@use "./styles/partials/mixins" as *;
 
 html {
     font-size: 100%;
@@ -11,14 +10,4 @@ html {
 *::after {
     box-sizing: border-box;
     margin: 0;
-}
-
-.main {
-    &__wrapper {
-        @include desktop {
-            @include flex-container;
-            margin: 0 auto;
-            width: 63.0625rem;
-        }
-    }
 }
