@@ -1,0 +1,177 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.main {
+    @include divider-top;
+}
+
+.upload {
+    margin: $padding-md $padding-sm;
+
+    @include tablet {
+        margin: $padding-lg;
+    }
+
+    @include desktop {
+        margin: $padding-lg auto;
+        width: 63.0625rem;
+    }
+
+    &__header {
+        font-size: $mobile-fs-page-header;
+        line-height: $mobile-lh-page-header;
+        font-weight: $fw-demi;
+        color: $primary-color-black;
+
+        @include tablet {
+            padding-bottom: $padding-md;
+            margin-bottom: $padding-md;
+            font-size: $fs-page-header;
+            line-height: $lh-page-header;
+            @include divider-bottom;
+        }
+    }
+
+    &__form {
+        @include desktop {
+            @include flex-container(column);
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-top: $padding-sm;
+        font-size: $mobile-fs-labels-btns;
+        line-height: $mobile-lh-labels-btns;
+        letter-spacing: $mobile-ls-labels-btns;
+        font-weight: $fw-demi;
+        color: $primary-color-gray;
+
+        @include tablet {
+            align-items: flex-end;
+            font-size: $fs-labels-btns;
+            line-height: $lh-labels-btns;
+        }
+
+        @include desktop {
+            margin: 0;
+        }
+    }
+
+    &__thumbnail {
+        aspect-ratio: 16/9;
+        max-width: 21.625rem;
+        background-image: url("../../assets/images/Upload-video-preview.jpg");
+        border-radius: $image-border-radius;
+        background-size: cover;
+        background-position: center;
+
+        @include tablet {
+            min-width: 20.25rem;
+            height: 12rem;
+        }
+
+        @include desktop {
+            height: 10.75rem;
+        }
+    }
+
+    &__container {
+        &--form {
+            @include desktop {
+                @include flex-container;
+                gap: $padding-md;
+                padding-bottom: $padding-lg;
+                @include divider-bottom;
+            }
+        }
+
+        &--inputs {
+            @include tablet {
+                padding-bottom: $padding-md;
+                margin-bottom: $padding-md;
+                @include divider-bottom;
+            }
+
+            @include desktop {
+                @include flex-container(column, space-between);
+                padding-bottom: 0;
+                margin-bottom: 0;
+                width: 100%;
+                border: none;
+            }
+        }
+
+        &--buttons {
+            @include tablet {
+                @include flex-container(row-reverse);
+            }
+
+            @include desktop {
+                margin-top: $padding-md;
+                gap: $padding-md;
+            }
+        }
+    }
+
+    &__input {
+        padding: $padding-xs;
+        height: 2.5rem;
+        width: 100%;
+        font-family: inherit;
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
+        background-color: $secondary-color-white;
+        border: $form-field-border;
+        border-radius: $form-radius;
+        color: $primary-color-black;
+
+        @include tablet {
+            @include flex-container($align: baseline);
+            height: 2.5rem;
+            margin: 0;
+            padding: $padding-xs;
+            font-family: $fs-body;
+            line-height: $lh-body;
+        }
+
+        &--textarea {
+            height: 5.375rem;
+            resize: none;
+            overflow: hidden;
+        }
+
+        &--error {
+            border-color: $error-color;
+        }
+
+        &::placeholder {
+            color: $primary-color-black;
+        }
+    }
+
+    &__button {
+        @include reset-button;
+        @include cta-button;
+        &--primary {
+            margin-top: $padding-sm;
+            background-image: url("../../assets/images/icons/upload.svg");
+
+            @include tablet {
+                margin: 0;
+            }
+        }
+
+        &--secondary {
+            margin: $padding-sm 0;
+            color: $primary-color-blue;
+            background-color: transparent;
+
+            @include tablet {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}

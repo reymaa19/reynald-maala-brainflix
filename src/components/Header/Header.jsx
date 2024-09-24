@@ -26,7 +26,7 @@ const Header = () => {
                 <div className="header__avatar header__avatar--hide" />
             </div>
 
-            <Link className="header__cta-button" to="/upload">
+            <Link className="header__button" to="/upload">
                 UPLOAD
             </Link>
             <div className="header__avatar header__avatar--right" />

@@ -20,7 +20,7 @@ const CommentsForm = () => {
                         className="comments-form__input"
                     ></textarea>
                 </div>
-                <button className="comments-form__cta-button">COMMENT</button>
+                <button className="comments-form__button">COMMENT</button>
             </div>
         </form>
     );

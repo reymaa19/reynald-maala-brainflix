@@ -57,3 +57,31 @@
         max-height: $avatar-size;
     }
 }
+
+@mixin cta-button {
+    @include flex-container($justify: center, $align: center);
+    height: 2.5rem;
+    min-width: 9.375rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 0.5rem 50%;
+    background-color: $primary-color-blue;
+    font-size: $mobile-fs-labels-btns;
+    line-height: $mobile-lh-labels-btns;
+    font-weight: $fw-demi;
+    letter-spacing: $mobile-ls-labels-btns;
+    color: $primary-color-white;
+    border-radius: 4px;
+
+    @include tablet {
+        padding: 0 2rem;
+        width: 9.75rem;
+        font-size: $fs-labels-btns;
+        line-height: $lh-labels-btns;
+        letter-spacing: $mobile-ls-labels-btns;
+    }
+
+    &:hover {
+        background-color: $secondary-color-blue;
+    }
+}

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import VideoContent from "../../components/VideoContent/VideoContent.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
-import videosApi from "../../services/api.js";
+import videosApi from "../../services/videos-api.js";
 import "./Video.scss";
 
 const Video = () => {

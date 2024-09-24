@@ -6,7 +6,7 @@ const NextVideo = ({ nextVideo }) => {
 
     return (
         <li className="next-video" id={id}>
-            <Link to={`/video/${id}`}>
+            <Link to={`/videos/${id}`}>
                 <img src={image} alt="" className="next-video__thumbnail" />
             </Link>
             <div className="next-video__wrapper">

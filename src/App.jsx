@@ -11,7 +11,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Video />} />
                 <Route path="/upload" element={<Upload />} />
-                <Route path="/video/:videoId" element={<Video />} />
+                <Route path="/videos/:videoId" element={<Video />} />
             </Routes>
         </BrowserRouter>
     );
