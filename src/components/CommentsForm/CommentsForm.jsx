@@ -1,5 +1,3 @@
-import Avatar from "../Avatar/Avatar";
-import CtaButton from "../CtaButton/CtaButton";
 import "./CommentsForm.scss";
 
 const CommentsForm = () => {
@@ -9,7 +7,7 @@ const CommentsForm = () => {
 
     return (
         <form action="#" className="comments-form" onSubmit={handleSubmit}>
-            <Avatar withImage={true} variant="comment" />
+            <div className="comments-form__avatar" />
             <div className="comments-form__inputs">
                 <div className="comments-form__inputs-container">
                     <label htmlFor="comment" className="comments-form__label">
@@ -22,7 +20,7 @@ const CommentsForm = () => {
                         className="comments-form__input"
                     ></textarea>
                 </div>
-                <CtaButton content="COMMENT" />
+                <button className="comments-form__cta-button">COMMENT</button>
             </div>
         </form>
     );

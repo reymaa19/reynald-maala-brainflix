@@ -1,4 +1,3 @@
-import Avatar from "../Avatar/Avatar.jsx";
 import "./Comment.scss";
 
 const Comment = ({ comment: commentObj }) => {
@@ -15,7 +14,9 @@ const Comment = ({ comment: commentObj }) => {
             { name: "minute", seconds: 60 },
         ];
 
-        if (difference < 60) { return "Just now"; }
+        if (difference < 60) {
+            return "Just now";
+        }
 
         for (const unit of timeUnits) {
             if (difference >= unit.seconds) {
@@ -27,7 +28,7 @@ const Comment = ({ comment: commentObj }) => {
 
     return (
         <li id={id} className="comment">
-            <Avatar />
+            <div className="comment__avatar" />
             <div className="comment__details">
                 <div className="comment__head">
                     <h4 className="comment__name">{name}</h4>

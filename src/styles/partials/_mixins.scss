@@ -40,3 +40,20 @@
 @mixin divider-left {
     border-left: 1px solid $secondary-color-gray;
 }
+
+@mixin avatar {
+    min-width: $mobile-avatar-size;
+    min-height: $mobile-avatar-size;
+    max-width: $mobile-avatar-size;
+    max-height: $mobile-avatar-size;
+    background-size: cover;
+    background-color: $secondary-color-gray;
+    border-radius: 50%;
+
+    @include tablet {
+        min-width: $avatar-size;
+        min-height: $avatar-size;
+        max-width: $avatar-size;
+        max-height: $avatar-size;
+    }
+}

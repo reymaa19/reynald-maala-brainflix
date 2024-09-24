@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Avatar from "../Avatar/Avatar.jsx";
-import CtaButton from "../CtaButton/CtaButton.jsx";
 import "./Header.scss";
 
 const Header = () => {
@@ -25,10 +23,13 @@ const Header = () => {
                     value={search}
                     onChange={changeHandler}
                 />
-                <Avatar withImage={true} variant="hide" />
+                <div className="header__avatar header__avatar--hide" />
             </div>
-            <CtaButton content="UPLOAD" />
-            <Avatar withImage={true} variant={"header-right"} />
+
+            <Link className="header__cta-button" to="/upload">
+                UPLOAD
+            </Link>
+            <div className="header__avatar header__avatar--right" />
         </header>
     );
 };
