@@ -20,3 +20,8 @@ export const formatTimestamp = (timestamp) => {
         }
     }
 };
+
+// Scrolls to top of page.
+export const scrollToTop = () => {
+    window.scrollTo({ top: 0, behaviour: "smooth" });
+};

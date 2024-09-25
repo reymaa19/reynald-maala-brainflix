@@ -1,8 +1,27 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Upload.scss";
 
 const Upload = () => {
+    const navigate = useNavigate();
+    const [values, setValues] = useState({
+        // thumbnail: null,
+        title: "",
+        description: "",
+    });
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        console.log(values);
+
+        alert("upload");
+        navigate("/");
+    };
+
+    const handleValueChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
     };
 
     return (
@@ -15,50 +34,46 @@ const Upload = () => {
                     className="upload__form"
                 >
                     <div className="upload__container--form">
-                        <div>
-                            <label className="upload__label">
-                                VIDEO THUMBNAIL
-                            </label>
+                        <label className="upload__label">
+                            VIDEO THUMBNAIL
                             <div className="upload__thumbnail" />
-                        </div>
+                        </label>
                         <div className="upload__container upload__container--inputs">
-                            <div>
-                                {" "}
-                                <label
-                                    htmlFor="title"
-                                    className="upload__label"
-                                >
-                                    TITLE YOUR VIDEO
-                                </label>
+                            <label htmlFor="title" className="upload__label">
+                                TITLE YOUR VIDEO
                                 <input
                                     name="title"
                                     id="title"
-                                    type="text"
                                     placeholder="Add a title to your video"
                                     className="upload__input"
+                                    value={values.title}
+                                    onChange={handleValueChange}
                                 />
-                            </div>
-                            <div>
-                                <label
-                                    htmlFor="description"
-                                    className="upload__label"
-                                >
-                                    VIDEO ADD A VIDEO DESCRIPTION
-                                </label>
+                            </label>
+                            <label
+                                htmlFor="description"
+                                className="upload__label"
+                            >
+                                VIDEO ADD A VIDEO DESCRIPTION
                                 <textarea
                                     name="description"
                                     id="description"
                                     placeholder="Add a description to your video"
                                     className="upload__input upload__input--textarea"
+                                    value={values.description}
+                                    onChange={handleValueChange}
                                 ></textarea>
-                            </div>
+                            </label>
                         </div>
                     </div>
                     <div className="upload__container upload__container--buttons">
                         <button className="upload__button upload__button--primary">
                             PUBLISH
                         </button>
-                        <button className="upload__button upload__button--secondary">
+                        <button
+                            className="upload__button upload__button--secondary"
+                            onClick={() => navigate("/")}
+                        >
                             CANCEL
                         </button>
                     </div>

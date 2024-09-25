@@ -4,41 +4,33 @@ import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import VideoContent from "../../components/VideoContent/VideoContent.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
 import videosApi from "../../services/videos-api.js";
+import { scrollToTop } from "../../utils/utils.js";
 import "./Video.scss";
 
 const Video = () => {
     const { videoId } = useParams();
     const [videos, setVideos] = useState([]);
-    const [currentVideo, setCurrentVideo] = useState({});
+    const [currentVideo, setCurrentVideo] = useState(null);
 
     useEffect(() => {
+        scrollToTop();
+
         const fetchVideos = async () => {
             const videosData = await videosApi.getVideos();
-            const videoData = await videosApi.getVideo(videosData[0].id);
+            const videoData = await videosApi.getVideo(videoId || videosData[0]?.id );
 
             setVideos(videosData);
             setCurrentVideo(videoData);
         };
 
         fetchVideos();
-    }, []);
-
-    useEffect(() => {
-        const fetchNewVideo = async () => {
-            if (videoId) {
-                const newVideoData = await videosApi.getVideo(videoId);
-                setCurrentVideo(newVideoData);
-            }
-        };
-
-        fetchNewVideo();
     }, [videoId]);
 
-    const nextVideos = videos.filter(({ id }) => id !== currentVideo.id);
+    const nextVideos = videos.filter(({ id }) => id !== currentVideo?.id);
 
     return (
         <main className="main">
-            {videos.length > 0 && (
+            {currentVideo && (
                 <>
                     <VideoPlayer currentVideo={currentVideo} />
                     <div className="main__wrapper">
