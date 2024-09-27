@@ -1,16 +1,20 @@
-import { useState } from "react";
 import Comment from "../Comment/Comment";
 import CommentsForm from "../CommentsForm/CommentsForm";
+import { sortByLatest } from "../../utils/utils";
 import "./Comments.scss";
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, onVideoUpdate }) => {
     return (
         <section className="comments">
             <h3 className="comments__header">{comments.length} Comments</h3>
-            <CommentsForm />
+            <CommentsForm onVideoUpdate={onVideoUpdate} />
             <ul className="comments__feed">
-                {comments.map((comment) => (
-                    <Comment key={comment.id} comment={comment} />
+                {sortByLatest(comments).map((comment) => (
+                    <Comment
+                        key={comment.id}
+                        comment={comment}
+                        onVideoUpdate={onVideoUpdate}
+                    />
                 ))}
             </ul>
         </section>

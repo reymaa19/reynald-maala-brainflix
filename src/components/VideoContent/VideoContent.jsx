@@ -1,9 +1,9 @@
 import "./VideoContent.scss";
 import Comments from "../Comments/Comments.jsx";
 
-const VideoContent = ({ currentVideo }) => {
+const VideoContent = ({ video, onVideoUpdate }) => {
     const { title, channel, timestamp, views, likes, description, comments } =
-        currentVideo;
+        video;
 
     return (
         <section className="video-content">
@@ -25,7 +25,7 @@ const VideoContent = ({ currentVideo }) => {
                 </div>
             </div>
             <p className="video-content__description">{description}</p>
-            <Comments comments={comments} />
+            <Comments comments={comments} onVideoUpdate={onVideoUpdate} />
         </section>
     );
 };

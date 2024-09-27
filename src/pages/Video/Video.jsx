@@ -1,40 +1,49 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { scrollToTop } from "../../utils/utils.js";
+import { getVideos, getVideo, firstVideoId } from "../../services/videos-api.js";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import VideoContent from "../../components/VideoContent/VideoContent.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
-import videosApi from "../../services/videos-api.js";
-import { scrollToTop } from "../../utils/utils.js";
 import "./Video.scss";
 
 const Video = () => {
     const { videoId } = useParams();
     const [videos, setVideos] = useState([]);
-    const [currentVideo, setCurrentVideo] = useState(null);
+    const [video, setVideo] = useState(null);
+
+    const findVideo = async (targetVideoId) => {
+        const videoData = await getVideo(targetVideoId || firstVideoId);
+        setVideo(videoData);
+    };
 
     useEffect(() => {
         scrollToTop();
+        video && findVideo(videoId);
+    }, [videoId]);
 
+    useEffect(() => {
         const fetchVideos = async () => {
-            const videosData = await videosApi.getVideos();
-            const videoData = await videosApi.getVideo(videoId || videosData[0]?.id );
-
+            const videosData = await getVideos();
+            findVideo();
             setVideos(videosData);
-            setCurrentVideo(videoData);
         };
 
         fetchVideos();
-    }, [videoId]);
+    }, []);
 
-    const nextVideos = videos.filter(({ id }) => id !== currentVideo?.id);
+    const nextVideos = videos.filter(({ id }) => id !== video?.id);
 
     return (
         <main className="main">
-            {currentVideo && (
+            {video && (
                 <>
-                    <VideoPlayer currentVideo={currentVideo} />
+                    <VideoPlayer video={video} />
                     <div className="main__wrapper">
-                        <VideoContent currentVideo={currentVideo} />
+                        <VideoContent
+                            video={video}
+                            onVideoUpdate={() => findVideo(video.id)}
+                        />
                         <NextVideos nextVideos={nextVideos} />
                     </div>
                 </>

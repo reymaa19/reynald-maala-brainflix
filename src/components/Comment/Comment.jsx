@@ -1,8 +1,16 @@
 import { formatTimestamp } from "../../utils/utils";
+import { useParams } from "react-router-dom";
+import { deleteComment } from "../../services/videos-api";
 import "./Comment.scss";
 
-const Comment = ({ comment: commentObj }) => {
+const Comment = ({ comment: commentObj, onVideoUpdate }) => {
+    const { videoId } = useParams();
     const { id, name, timestamp, comment } = commentObj;
+
+    const handleDeleteClick = async () => {
+        await deleteComment(videoId, id);
+        onVideoUpdate();
+    };
 
     return (
         <li id={id} className="comment">
@@ -15,6 +23,12 @@ const Comment = ({ comment: commentObj }) => {
                     </p>
                 </div>
                 <p className="comment__text">{comment}</p>
+                <button
+                    className="comment__delete-button"
+                    onClick={handleDeleteClick}
+                >
+                    Delete
+                </button>
             </div>
         </li>
     );

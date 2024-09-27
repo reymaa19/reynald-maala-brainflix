@@ -25,3 +25,10 @@ export const formatTimestamp = (timestamp) => {
 export const scrollToTop = () => {
     window.scrollTo({ top: 0, behaviour: "smooth" });
 };
+
+// Sorts the given data by latest to oldest timestamp.
+export const sortByLatest = (data) => {
+    return data.sort((a, b) => {
+        return new Date(b.timestamp) - new Date(a.timestamp);
+    });
+};

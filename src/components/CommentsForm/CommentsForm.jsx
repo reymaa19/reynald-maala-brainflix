@@ -1,8 +1,18 @@
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { postComment } from "../../services/videos-api";
 import "./CommentsForm.scss";
 
-const CommentsForm = () => {
-    const handleSubmit = (e) => {
+const CommentsForm = ({ onVideoUpdate }) => {
+    const [comment, setComment] = useState("");
+    const { videoId } = useParams();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        await postComment(videoId, comment);
+        setComment("");
+        onVideoUpdate();
     };
 
     return (
@@ -18,6 +28,8 @@ const CommentsForm = () => {
                         id="comment"
                         placeholder="Add a new comment"
                         className="comments-form__input"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
                     ></textarea>
                 </div>
                 <button className="comments-form__button">COMMENT</button>

@@ -63,6 +63,7 @@
         max-width: 21.625rem;
         background-image: url("../../assets/images/Upload-video-preview.jpg");
         border-radius: $image-border-radius;
+        border: none;
         background-size: cover;
         background-position: center;
 
@@ -132,7 +133,7 @@
             height: 2.5rem;
             margin: 0;
             padding: $padding-xs;
-            font-family: $fs-body;
+            font-size: $fs-body;
             line-height: $lh-body;
         }
 

@@ -1,7 +1,7 @@
 import "./VideoPlayer.scss";
 
-const Video = ({ currentVideo }) => {
-    const { image } = currentVideo;
+const Video = ({ video }) => {
+    const { image } = video;
 
     return (
         <div className="video-player">

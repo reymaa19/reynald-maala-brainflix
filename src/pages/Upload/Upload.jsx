@@ -36,7 +36,7 @@ const Upload = () => {
                     <div className="upload__container--form">
                         <label className="upload__label">
                             VIDEO THUMBNAIL
-                            <div className="upload__thumbnail" />
+                            <input className="upload__thumbnail" />
                         </label>
                         <div className="upload__container upload__container--inputs">
                             <label htmlFor="title" className="upload__label">
