@@ -8,13 +8,22 @@ const Comment = ({ comment: commentObj, onVideoUpdate }) => {
     const { id, name, timestamp, comment } = commentObj;
 
     const handleDeleteClick = async () => {
-        await deleteComment(videoId, id);
-        onVideoUpdate();
+        const isConfirmed = confirm(`${name}\n${comment}\n\nAre you sure you want to delete this comment?`);
+        if (!isConfirmed) return;
+
+        const result = await deleteComment(videoId, id);
+        if (result.status === 200) onVideoUpdate();
     };
 
     return (
         <li id={id} className="comment">
-            <div className="comment__avatar" />
+            <div className="comment__wrapper">
+                <div className="comment__avatar" />
+                <button
+                    className="comment__delete-button"
+                    onClick={handleDeleteClick}
+                />
+            </div>
             <div className="comment__details">
                 <div className="comment__head">
                     <h4 className="comment__name">{name}</h4>
@@ -23,12 +32,6 @@ const Comment = ({ comment: commentObj, onVideoUpdate }) => {
                     </p>
                 </div>
                 <p className="comment__text">{comment}</p>
-                <button
-                    className="comment__delete-button"
-                    onClick={handleDeleteClick}
-                >
-                    Delete
-                </button>
             </div>
         </li>
     );

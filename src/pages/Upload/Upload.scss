@@ -39,7 +39,7 @@
     }
 
     &__label {
-        display: block;
+        @include flex-container(column);
         margin-top: $padding-sm;
         font-size: $mobile-fs-labels-btns;
         line-height: $mobile-lh-labels-btns;
@@ -48,7 +48,6 @@
         color: $primary-color-gray;
 
         @include tablet {
-            align-items: flex-end;
             font-size: $fs-labels-btns;
             line-height: $lh-labels-btns;
         }
@@ -167,11 +166,15 @@
         &--secondary {
             margin: $padding-sm 0;
             color: $primary-color-blue;
-            background-color: transparent;
+            background-color: $primary-color-white;
 
             @include tablet {
                 margin: 0;
                 padding: 0;
+            }
+
+            &:hover {
+                background-color: $secondary-color-gray;
             }
         }
     }

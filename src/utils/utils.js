@@ -9,9 +9,7 @@ export const formatTimestamp = (timestamp) => {
         { name: "minute", seconds: 60 },
     ];
 
-    if (difference < 60) {
-        return "Just now";
-    }
+    if (difference < 60) return "Just now";
 
     for (const unit of timeUnits) {
         if (difference >= unit.seconds) {

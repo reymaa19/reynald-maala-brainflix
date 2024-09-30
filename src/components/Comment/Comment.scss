@@ -15,8 +15,27 @@
         padding-right: $padding-md;
     }
 
+    &__wrapper {
+        @include flex-container(column, space-between, center);
+    }
+
     &__avatar {
         @include avatar;
+    }
+
+    &__delete-button {
+        @include reset-button;
+        min-width: 1.5rem;
+        min-height: 1.5rem;
+        padding: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        background-image: url("../../assets/images/icons//icon-delete.svg");
+
+        &:hover {
+            background-color: $secondary-color-gray;
+        }
     }
 
     &__details {

@@ -10,9 +10,12 @@ const CommentsForm = ({ onVideoUpdate }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await postComment(videoId, comment);
-        setComment("");
-        onVideoUpdate();
+        const result = await postComment(videoId, comment);
+
+        if (result.status === 200) {
+            setComment("");
+            onVideoUpdate();
+        }
     };
 
     return (
