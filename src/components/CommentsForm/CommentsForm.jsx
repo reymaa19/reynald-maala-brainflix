@@ -12,7 +12,7 @@ const CommentsForm = ({ onVideoUpdate }) => {
 
         const result = await postComment(videoId, comment);
 
-        if (result.status === 200) {
+        if (result.status === 201) {
             setComment("");
             onVideoUpdate();
         }
