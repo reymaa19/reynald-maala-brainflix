@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Video from "./pages/Video/Video.jsx";
 import Header from "./components/Header/Header.jsx";
-import Upload from "./pages/Upload/Upload.jsx";
+import VideoPage from "./pages/VideoPage/VideoPage.jsx";
+import UploadPage from "./pages/UploadPage/UploadPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import "./App.scss";
 
 const App = () => {
@@ -9,9 +10,10 @@ const App = () => {
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path="/" element={<Video />} />
-                <Route path="/upload" element={<Upload />} />
-                <Route path="/videos/:videoId" element={<Video />} />
+                <Route path="/" element={<VideoPage />} />
+                <Route path="/upload" element={<UploadPage />} />
+                <Route path="/videos/:videoId" element={<VideoPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     );

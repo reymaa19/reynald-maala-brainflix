@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com";
-const API_KEY = "86787a94-e6e0-4ab2-ae3a-46f8d35a1713";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 let _firstVideoId; // Stores the ID of the first video fetched.
 
 // Fetches a single video by its ID.
 export const getVideo = async (videoId) => {
     try {
-        const response = await axios.get(`${BASE_URL}/videos/${videoId || _firstVideoId}?api_key=${API_KEY}`);
+        const response = await axios.get(`${BASE_URL}/videos/${videoId || _firstVideoId}`);
         return response.data;
     } catch (error) {
         console.log("An error occurred while fetching current video.", error);
@@ -18,7 +17,7 @@ export const getVideo = async (videoId) => {
 // Fetches all videos.
 export const getVideos = async () => {
     try {
-        const response = await axios.get(`${BASE_URL}/videos?api_key=${API_KEY}`);
+        const response = await axios.get(`${BASE_URL}/videos`);
 
         _firstVideoId = response.data[0].id;
         return response.data;
@@ -31,10 +30,10 @@ export const getVideos = async () => {
 // Posts a new comment on a video.
 export const postComment = async (videoId, comment) => {
     try {
-        const response = await axios.post(
-            `${BASE_URL}/videos/${videoId || _firstVideoId}/comments?api_key=${API_KEY}`,
-            { name: "Reynald Maala", comment },
-        );
+        const response = await axios.post(`${BASE_URL}/videos/${videoId || _firstVideoId}/comments`, {
+            name: "Reynald Maala",
+            comment,
+        });
 
         return response;
     } catch (error) {
@@ -46,7 +45,7 @@ export const postComment = async (videoId, comment) => {
 // Deletes a comment from a video.
 export const deleteComment = async (videoId, commentId) => {
     try {
-        const response = await axios.delete(`${BASE_URL}/videos/${videoId || _firstVideoId}/comments/${commentId}?api_key=${API_KEY}`);
+        const response = await axios.delete(`${BASE_URL}/videos/${videoId || _firstVideoId}/comments/${commentId}`);
         return response;
     } catch (error) {
         console.log("An error occurred while deleting selected comment.", error);

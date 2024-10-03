@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Upload.scss";
+import "./UploadPage.scss";
 
-const Upload = () => {
+const UploadPage = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
-        // thumbnail: null,
         title: "",
         description: "",
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log(values);
 
         alert("upload");
         navigate("/");
@@ -28,12 +25,8 @@ const Upload = () => {
         <main className="main">
             <section className="upload">
                 <h1 className="upload__header">Upload Video</h1>
-                <form
-                    action="#"
-                    onSubmit={handleSubmit}
-                    className="upload__form"
-                >
-                    <div className="upload__container--form">
+                <form onSubmit={handleSubmit} className="upload__form">
+                    <div className="upload__container upload__container--form">
                         <label className="upload__label">
                             VIDEO THUMBNAIL
                             <input className="upload__thumbnail" />
@@ -50,10 +43,7 @@ const Upload = () => {
                                     onChange={handleValueChange}
                                 />
                             </label>
-                            <label
-                                htmlFor="description"
-                                className="upload__label"
-                            >
+                            <label htmlFor="description" className="upload__label">
                                 VIDEO ADD A VIDEO DESCRIPTION
                                 <textarea
                                     name="description"
@@ -67,11 +57,12 @@ const Upload = () => {
                         </div>
                     </div>
                     <div className="upload__container upload__container--buttons">
-                        <button className="upload__button upload__button--primary">
+                        <button className="upload__button upload__button--primary" type="submit">
                             PUBLISH
                         </button>
                         <button
                             className="upload__button upload__button--secondary"
+                            type="button"
                             onClick={() => navigate("/")}
                         >
                             CANCEL
@@ -83,4 +74,4 @@ const Upload = () => {
     );
 };
 
-export default Upload;
+export default UploadPage;

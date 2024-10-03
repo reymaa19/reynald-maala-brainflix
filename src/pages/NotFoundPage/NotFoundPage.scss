@@ -1,0 +1,26 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.main {
+    @include divider-top;
+}
+
+.not-found {
+    margin: $padding-md $padding-sm;
+    @include flex-container(column);
+    gap: 2rem;
+
+    @include tablet {
+        margin: $padding-lg;
+    }
+
+    @include desktop {
+        margin: $padding-lg auto;
+        width: 63.0625rem;
+    }
+
+    &__link {
+        @include cta-button;
+        text-decoration: none;
+    }
+}

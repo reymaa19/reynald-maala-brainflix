@@ -5,12 +5,7 @@ const Video = ({ video }) => {
 
     return (
         <div className="video-player">
-            <video
-                className="video-player__video"
-                controls
-                poster={image}
-                src="#"
-            ></video>
+            <video className="video-player__video" controls poster={image} src="#"></video>
         </div>
     );
 };

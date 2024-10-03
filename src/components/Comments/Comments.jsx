@@ -10,11 +10,7 @@ const Comments = ({ comments, onVideoUpdate }) => {
             <CommentsForm onVideoUpdate={onVideoUpdate} />
             <ul className="comments__feed">
                 {sortByLatest(comments).map((comment) => (
-                    <Comment
-                        key={comment.id}
-                        comment={comment}
-                        onVideoUpdate={onVideoUpdate}
-                    />
+                    <Comment key={comment.id} comment={comment} onVideoUpdate={onVideoUpdate} />
                 ))}
             </ul>
         </section>

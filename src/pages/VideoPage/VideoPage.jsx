@@ -5,9 +5,9 @@ import { getVideos, getVideo } from "../../services/videos-api.js";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import VideoContent from "../../components/VideoContent/VideoContent.jsx";
 import NextVideos from "../../components/NextVideos/NextVideos.jsx";
-import "./Video.scss";
+import "./VideoPage.scss";
 
-const Video = () => {
+const VideoPage = () => {
     const { videoId } = useParams();
     const [videos, setVideos] = useState([]);
     const [video, setVideo] = useState(null);
@@ -52,4 +52,4 @@ const Video = () => {
     );
 };
 
-export default Video;
+export default VideoPage;
