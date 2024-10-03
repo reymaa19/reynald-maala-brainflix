@@ -65,6 +65,7 @@
         border: none;
         background-size: cover;
         background-position: center;
+        pointer-events: none;
 
         @include tablet {
             min-width: 20.25rem;

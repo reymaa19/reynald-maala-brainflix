@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { postVideo } from "../../services/videos-api";
 import "./UploadPage.scss";
 
 const UploadPage = () => {
@@ -9,11 +10,12 @@ const UploadPage = () => {
         description: "",
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        alert("upload");
-        navigate("/");
+        const result = await postVideo(values);
+
+        if (result.status === 201) navigate("/");
     };
 
     const handleValueChange = (e) => {

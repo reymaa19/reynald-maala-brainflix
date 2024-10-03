@@ -27,13 +27,22 @@ export const getVideos = async () => {
     }
 };
 
+// Posts a new video.
+export const postVideo = async (newVideo) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/videos`, newVideo);
+
+        return response;
+    } catch (error) {
+        console.log("An error occurred while submitting your video.", error);
+        alert("Failed to add video. Please try again.");
+    }
+};
+
 // Posts a new comment on a video.
 export const postComment = async (videoId, comment) => {
     try {
-        const response = await axios.post(`${BASE_URL}/videos/${videoId || _firstVideoId}/comments`, {
-            name: "Reynald Maala",
-            comment,
-        });
+        const response = await axios.post(`${BASE_URL}/videos/${videoId || _firstVideoId}/comments`, { comment });
 
         return response;
     } catch (error) {
@@ -56,6 +65,7 @@ export const deleteComment = async (videoId, commentId) => {
 export default {
     getVideo,
     getVideos,
+    postVideo,
     postComment,
     deleteComment,
 };
