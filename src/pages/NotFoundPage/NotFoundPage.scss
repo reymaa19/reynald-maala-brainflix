@@ -20,7 +20,7 @@
     }
 
     &__link {
-        @include cta-button;
         text-decoration: none;
+        @include cta-button;
     }
 }
