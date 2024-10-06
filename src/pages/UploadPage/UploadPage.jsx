@@ -5,6 +5,10 @@ import "./UploadPage.scss";
 
 const UploadPage = () => {
     const navigate = useNavigate();
+    const [error, setError] = useState({
+        title: "",
+        description: "",
+    });
     const [values, setValues] = useState({
         title: "",
         description: "",
@@ -13,13 +17,24 @@ const UploadPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!values.title || !values.description) {
+            if (!values.title) setError((prev) => ({ ...prev, title: "Title is required" }));
+            if (!values.description)
+                setError((prev) => ({ ...prev, description: "Description is required" }));
+
+            return;
+        }
+
         const result = await postVideo(values);
 
         if (result.status === 201) navigate("/");
+        else setError(result);
     };
 
     const handleValueChange = (e) => {
         const { name, value } = e.target;
+
+        if (error.title || error.description) setError({ ...error, [name]: "" });
         setValues({ ...values, [name]: value });
     };
 
@@ -39,22 +54,28 @@ const UploadPage = () => {
                                 <input
                                     name="title"
                                     id="title"
-                                    placeholder="Add a title to your video"
-                                    className="upload__input"
+                                    placeholder={error.title ? "" : "Add a title to your video"}
+                                    className={`upload__input ${error.title && "upload__input--error"}`}
                                     value={values.title}
                                     onChange={handleValueChange}
                                 />
+                                <p className="upload__label upload__label--error">{error.title}</p>
                             </label>
                             <label htmlFor="description" className="upload__label">
                                 VIDEO ADD A VIDEO DESCRIPTION
                                 <textarea
                                     name="description"
                                     id="description"
-                                    placeholder="Add a description to your video"
-                                    className="upload__input upload__input--textarea"
+                                    placeholder={
+                                        error.description ? "" : "Add a description to your video"
+                                    }
+                                    className={`upload__input upload__input--textarea ${error.description && "upload__input--error"}`}
                                     value={values.description}
                                     onChange={handleValueChange}
                                 ></textarea>
+                                <p className="upload__label upload__label--error">
+                                    {error.description}
+                                </p>
                             </label>
                         </div>
                     </div>

@@ -4,22 +4,35 @@ import { postComment } from "../../services/videos-api";
 import "./CommentsForm.scss";
 
 const CommentsForm = ({ onVideoUpdate }) => {
-    const [comment, setComment] = useState("");
     const { videoId } = useParams();
+    const [comment, setComment] = useState("");
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (comment.length === 0) {
+            setError("Comment is required");
+            return;
+        }
 
         const result = await postComment(videoId, comment);
 
         if (result.status === 201) {
             setComment("");
             onVideoUpdate();
+        } else {
+            setError(result);
         }
     };
 
+    const handleCommentChange = (e) => {
+        if (error) setError("");
+        setComment(e.target.value);
+    };
+
     return (
-        <form action="#" className="comments-form" onSubmit={handleSubmit}>
+        <form className="comments-form" onSubmit={handleSubmit}>
             <div className="comments-form__avatar" />
             <div className="comments-form__inputs">
                 <div className="comments-form__inputs-container">
@@ -29,13 +42,16 @@ const CommentsForm = ({ onVideoUpdate }) => {
                     <textarea
                         name="comment"
                         id="comment"
-                        placeholder="Add a new comment"
-                        className="comments-form__input"
+                        placeholder={error ? "" : "Add a new comment"}
+                        className={`comments-form__input ${error && "comments-form__input--error"}`}
                         value={comment}
-                        onChange={(e) => setComment(e.target.value)}
+                        onChange={handleCommentChange}
                     ></textarea>
+                    <p className="comments-form__error">{error}</p>
                 </div>
-                <button className="comments-form__button">COMMENT</button>
+                <button className="comments-form__button" type="submit">
+                    COMMENT
+                </button>
             </div>
         </form>
     );

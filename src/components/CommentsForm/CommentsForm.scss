@@ -11,7 +11,6 @@
     color: $primary-color-gray;
 
     @include tablet {
-        align-items: flex-end;
         padding-bottom: $padding-md;
         font-size: $fs-labels-btns;
         line-height: $mobile-lh-labels-btns;
@@ -22,9 +21,13 @@
     }
 
     &__avatar {
-        margin-top: $padding-md;
+        margin-top: $padding-sm;
         background-image: url("/src/assets/images/Mohan-muruge.jpg");
         @include avatar;
+
+        @include tablet {
+            margin-top: $padding-md;
+        }
     }
 
     &__inputs {
@@ -33,7 +36,6 @@
 
         @include tablet {
             flex-direction: row;
-            align-items: flex-end;
         }
     }
 
@@ -51,7 +53,6 @@
 
     &__input {
         height: 5.875rem;
-        margin: 0.25rem 0 $padding-sm 0;
         padding: $padding-xs;
         resize: none;
         font-family: inherit;
@@ -66,7 +67,6 @@
 
         @include tablet {
             @include flex-container($align: baseline);
-            padding: $padding-xs;
             margin: 0;
             height: 2.5rem;
             width: 100%;
@@ -80,12 +80,38 @@
 
         &--error {
             border-color: $error-color;
+
+            &::placeholder {
+                color: $error-color;
+            }
+        }
+    }
+
+    &__error {
+        font-weight: $fw-regular;
+        color: $error-color;
+        display: hidden;
+        position: absolute;
+        margin-top: 7.0625rem;
+        margin-left: 0.75rem;
+
+        @include tablet {
+            margin-top: 4.125rem;
+        }
+
+        &--visible {
+            display: block;
         }
     }
 
     &__button {
+        margin-top: $padding-sm;
         @include reset-button;
         background-image: url("/src/assets/images/icons/add_comment.svg");
         @include cta-button;
+
+        @include tablet {
+            margin-top: $padding-md;
+        }
     }
 }

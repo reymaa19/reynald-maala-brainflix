@@ -47,6 +47,12 @@
         font-weight: $fw-demi;
         color: $primary-color-gray;
 
+        &--error {
+            margin-top: 0;
+            font-weight: $fw-regular;
+            color: $error-color;
+        }
+
         @include tablet {
             font-size: $fs-labels-btns;
             line-height: $lh-labels-btns;
