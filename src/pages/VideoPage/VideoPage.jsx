@@ -11,11 +11,15 @@ const VideoPage = () => {
     const { videoId } = useParams();
     const [videos, setVideos] = useState([]);
     const [video, setVideo] = useState(null);
+    const [error, setError] = useState("");
 
     // fetch and set the targetted video's data.
     const findVideo = async () => {
-        const videoData = await getVideo(videoId);
-        setVideo(videoData);
+        const result = await getVideo(videoId);
+        if (result.status === 200) {
+            setVideo(result.data);
+            setError("");
+        } else setError(result.data.error);
     };
 
     useEffect(() => {
@@ -26,10 +30,12 @@ const VideoPage = () => {
     useEffect(() => {
         // fetch and initialize all video data.
         const fetchVideos = async () => {
-            const videosData = await getVideos();
-            setVideos(videosData);
+            const result = await getVideos();
 
-            findVideo();
+            if (result.status === 200) {
+                setVideos(result.data);
+                findVideo();
+            } else setError(result.data.error);
         };
 
         fetchVideos();
@@ -39,6 +45,7 @@ const VideoPage = () => {
 
     return (
         <main className="main">
+            {error && <p className="main__error">{error}</p>}
             {video && (
                 <>
                     <VideoPlayer video={video} />

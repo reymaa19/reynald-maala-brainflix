@@ -11,19 +11,17 @@ const CommentsForm = ({ onVideoUpdate }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (comment.length === 0) {
-            setError("Comment is required");
-            return;
-        }
+        //if (comment.length === 0) {
+        //    setError("Comment is required");
+        //    return;
+        //}
 
         const result = await postComment(videoId, comment);
 
         if (result.status === 201) {
             setComment("");
             onVideoUpdate();
-        } else {
-            setError(result);
-        }
+        } else setError(result.data.error);
     };
 
     const handleCommentChange = (e) => {

@@ -28,7 +28,7 @@ const UploadPage = () => {
         const result = await postVideo(values);
 
         if (result.status === 201) navigate("/");
-        else setError(result);
+        else setError(result.data.error);
     };
 
     const handleValueChange = (e) => {

@@ -1,6 +1,22 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .main {
+    &__error {
+        @include flex-container(column, center, center);
+        margin: $padding-sm;
+
+        @include tablet {
+            flex-direction: row;
+            margin: $padding-sm $padding-lg;
+        }
+
+        @include desktop {
+            margin: $padding-sm auto;
+            width: 63.0625rem;
+        }
+    }
+
     &__wrapper {
         @include desktop {
             @include flex-container;

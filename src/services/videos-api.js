@@ -3,19 +3,6 @@ import axios from "axios";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 let _firstVideoId; // Stores the ID of the first video fetched.
 
-// Fetches a single video by its ID.
-export const getVideo = async (videoId) => {
-    try {
-        const url = `${BASE_URL}/videos/${videoId || _firstVideoId}`;
-        const response = await axios.get(url);
-
-        return response.data;
-    } catch (error) {
-        //console.log("An error occurred while fetching current video.", error);
-        //alert("Failed to fetch current video. Please try again.");
-    }
-};
-
 // Fetches all videos.
 export const getVideos = async () => {
     try {
@@ -23,10 +10,21 @@ export const getVideos = async () => {
         const response = await axios.get(url);
 
         _firstVideoId = response.data[0].id;
-        return response.data;
-    } catch (error) {
-        //console.log("An error occurred while fetching videos.", error);
-        //alert("Failed to fetch videos. Please try again.");
+        return response;
+    } catch (err) {
+        return err.response;
+    }
+};
+
+// Fetches a single video by its ID.
+export const getVideo = async (videoId) => {
+    try {
+        const url = `${BASE_URL}/videos/${videoId || _firstVideoId}`;
+        const response = await axios.get(url);
+
+        return response;
+    } catch (err) {
+        return err.response;
     }
 };
 
@@ -38,7 +36,7 @@ export const postVideo = async (newVideo) => {
 
         return response;
     } catch (err) {
-        return err.response.data.error;
+        return err.response;
     }
 };
 
@@ -50,7 +48,7 @@ export const postComment = async (videoId, comment) => {
 
         return response;
     } catch (err) {
-        return err.response.data.error;
+        return err.response;
     }
 };
 
@@ -61,9 +59,8 @@ export const deleteComment = async (videoId, commentId) => {
         const response = await axios.delete(url);
 
         return response;
-    } catch (error) {
-        //console.log("An error occurred while deleting selected comment.", error);
-        //alert("Failed to delete selected comment. Please try again.");
+    } catch (err) {
+        return err.response;
     }
 };
 
