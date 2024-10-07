@@ -40,31 +40,21 @@
         @include tablet {
             gap: $padding-sm;
         }
-
-        @include desktop {
-            margin: 0 13.5625rem;
-        }
     }
 
     &__progress {
         background-image: url("../../assets/images/icons/scrub.svg");
-        width: 22vw;
-
-        @include tablet {
-            width: 53.75vw;
-        }
-
-        @include desktop {
-            width: 33rem;
-        }
+        width: 100%;
     }
 
     &__time {
+        min-width: 4.0625rem;
         font-size: $mobile-fs-body;
         line-height: $mobile-lh-body;
         font-weight: $fw-regular;
 
         @include tablet {
+            min-width: 4.375rem;
             font-size: $fs-body;
             line-height: $lh-body;
         }
