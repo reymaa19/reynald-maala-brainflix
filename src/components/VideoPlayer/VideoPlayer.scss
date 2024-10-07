@@ -26,4 +26,113 @@
             width: 52.875rem;
         }
     }
+
+    &__controls {
+        @extend .video-player__video;
+        gap: $padding-xs;
+        padding: 0 $padding-sm;
+        position: relative;
+        bottom: $padding-sm;
+        z-index: 999;
+        height: 0;
+        @include flex-container(row, center, flex-end);
+
+        @include tablet {
+            gap: $padding-sm;
+        }
+
+        @include desktop {
+            margin: 0 13.5625rem;
+        }
+    }
+
+    &__progress {
+        background-image: url("../../assets/images/icons/scrub.svg");
+        width: 22vw;
+
+        @include tablet {
+            width: 53.75vw;
+        }
+
+        @include desktop {
+            width: 33rem;
+        }
+    }
+
+    &__time {
+        font-size: $mobile-fs-body;
+        line-height: $mobile-lh-body;
+        font-weight: $fw-regular;
+
+        @include tablet {
+            font-size: $fs-body;
+            line-height: $lh-body;
+        }
+    }
+
+    &__container {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0.25rem;
+        max-height: 2.125rem;
+
+        &--progress {
+            @include flex-container(row, space-between);
+            gap: $padding-sm;
+            padding: 0.25rem $padding-sm;
+            width: 58vw;
+
+            @include tablet {
+                width: 69.01vw;
+                padding: 0.5625rem $padding-sm;
+            }
+
+            @include desktop {
+                width: 41.25rem;
+            }
+        }
+    }
+
+    &__button {
+        @include reset-button;
+        border-radius: 0.25rem;
+        padding: 0.813rem;
+        min-width: 1rem;
+        min-height: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include tablet {
+            padding: 1.0625rem;
+            min-width: 1.6rem;
+            min-height: 1.6rem;
+        }
+
+        &:hover {
+            background-color: $secondary-color-gray;
+        }
+
+        &--pause {
+            background-image: url("../../assets/images/icons/pause.svg");
+        }
+
+        &--play {
+            background-image: url("../../assets/images/icons/play.svg");
+        }
+
+        &--fullscreen {
+            background-image: url("../../assets/images/icons/fullscreen.svg");
+        }
+
+        &--volume-up {
+            background-image: url("../../assets/images/icons/volume_up.svg");
+        }
+
+        &--volume-off {
+            background-image: url("../../assets/images/icons/volume_off.svg");
+        }
+    }
+
+    &__time {
+        color: white;
+    }
 }

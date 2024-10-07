@@ -30,3 +30,10 @@ export const sortByLatest = (data) => {
         return new Date(b.timestamp) - new Date(a.timestamp);
     });
 };
+
+// Formats the time to `mm:ss`
+export const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+};
