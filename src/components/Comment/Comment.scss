@@ -73,4 +73,12 @@
             line-height: $lh-body;
         }
     }
+
+    &__error {
+        @extend .comment__text;
+        margin-top: 0.25rem;
+        font-weight: $fw-regular;
+        color: $error-color;
+        position: absolute;
+    }
 }

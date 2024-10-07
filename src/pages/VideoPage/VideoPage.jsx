@@ -13,7 +13,7 @@ const VideoPage = () => {
     const [video, setVideo] = useState(null);
     const [error, setError] = useState("");
 
-    // fetch and set the targetted video's data.
+    // fetch and set the selected video's data.
     const findVideo = async () => {
         const result = await getVideo(videoId);
         if (result.status === 200) {

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { formatTimestamp } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 import { deleteComment } from "../../services/videos-api";
@@ -6,13 +7,18 @@ import "./Comment.scss";
 const Comment = ({ comment: commentObj, onVideoUpdate }) => {
     const { videoId } = useParams();
     const { id, name, timestamp, comment } = commentObj;
+    const [error, setError] = useState("");
 
     const handleDeleteClick = async () => {
         const isConfirmed = confirm(`${name}\n${comment}\n\nAre you sure you want to delete this comment?`);
         if (!isConfirmed) return;
 
         const result = await deleteComment(videoId, id);
-        if (result.status === 200) onVideoUpdate();
+
+        if (result.status === 200) {
+            onVideoUpdate();
+            setError("");
+        } else setError(result.data.error);
     };
 
     return (
@@ -27,6 +33,7 @@ const Comment = ({ comment: commentObj, onVideoUpdate }) => {
                     <p className="comment__timestamp">{formatTimestamp(timestamp)}</p>
                 </div>
                 <p className="comment__text">{comment}</p>
+                {error && <p className="comment__error">{error}</p>}
             </div>
         </li>
     );

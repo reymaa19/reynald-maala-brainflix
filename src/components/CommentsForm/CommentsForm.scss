@@ -90,16 +90,11 @@
     &__error {
         font-weight: $fw-regular;
         color: $error-color;
-        display: hidden;
         position: absolute;
         margin-top: 7.0625rem;
 
         @include tablet {
             margin-top: 4.125rem;
-        }
-
-        &--visible {
-            display: block;
         }
     }
 
