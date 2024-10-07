@@ -10,6 +10,7 @@ const UploadPage = () => {
         description: "",
     });
     const [values, setValues] = useState({
+        thumbnail: "",
         title: "",
         description: "",
     });
@@ -44,9 +45,15 @@ const UploadPage = () => {
                 <h1 className="upload__header">Upload Video</h1>
                 <form onSubmit={handleSubmit} className="upload__form">
                     <div className="upload__container upload__container--form">
-                        <label className="upload__label">
+                        <label className="upload__label" htmlFor="thumbnail">
                             VIDEO THUMBNAIL
-                            <input className="upload__thumbnail" />
+                            <input
+                                className="upload__thumbnail"
+                                name="thumbnail"
+                                id="thumbnail"
+                                type="file"
+                                onChange={handleValueChange}
+                            />
                         </label>
                         <div className="upload__container upload__container--inputs">
                             <label htmlFor="title" className="upload__label">
